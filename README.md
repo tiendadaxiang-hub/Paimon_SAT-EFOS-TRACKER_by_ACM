@@ -201,16 +201,7 @@ Este repositorio descarga y procesa datos públicos del SAT para facilitar la co
 
 ---
 
-## Autor
-
-**David Nieto** — Abogado, Contador Público y Doctor en Derecho (en formación)  
-Especialista en derecho fiscal, tributario y penal  
-Investigador en IA, Administraciones Tributarias y Derechos Humanos  
-
-🔐 Contacto seguro (PGP): [github.com/Ar0d3x/public-key-nieto](https://github.com/Ar0d3x/public-key-nieto)  
-🐙 GitHub: [@Ar0d3x](https://github.com/Ar0d3x)
-
----
+Paimon...(luego volver)
 
 ## Licencia
 
