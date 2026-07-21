@@ -1,0 +1,37 @@
+# docker-compose.yml — sat-efos-tracker
+# Uso: docker compose up -d
+#
+# Crea los volúmenes locales automáticamente en ./data y ./logs
+# Configura las variables de entorno en un archivo .env (ver .env.example)
+
+services:
+  efos-tracker:
+    build: .
+    container_name: sat-efos-tracker
+    restart: unless-stopped
+
+    environment:
+      # Hora de descarga diaria (formato HH:MM, hora local del contenedor)
+      EFOS_SCHEDULE_TIME: "${EFOS_SCHEDULE_TIME:-06:00}"
+      # Ejecutar ciclo al arrancar el contenedor
+      EFOS_RUN_ON_START: "${EFOS_RUN_ON_START:-true}"
+      # Notificaciones por correo (dejar vacío para deshabilitar)
+      EFOS_NOTIFY_ON_NEW: "${EFOS_NOTIFY_ON_NEW:-false}"
+      EFOS_SMTP_HOST:     "${EFOS_SMTP_HOST:-}"
+      EFOS_SMTP_PORT:     "${EFOS_SMTP_PORT:-587}"
+      EFOS_SMTP_USER:     "${EFOS_SMTP_USER:-}"
+      EFOS_SMTP_PASS:     "${EFOS_SMTP_PASS:-}"
+      EFOS_NOTIFY_FROM:   "${EFOS_NOTIFY_FROM:-}"
+      EFOS_NOTIFY_TO:     "${EFOS_NOTIFY_TO:-}"
+
+    volumes:
+      # Persistir datos y logs fuera del contenedor
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+    # Limitar recursos para correr cómodamente en Proxmox/Pi
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
