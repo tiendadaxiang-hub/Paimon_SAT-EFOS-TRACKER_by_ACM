@@ -56,8 +56,8 @@ sat-efos-tracker/
 ### Opción A — Python directo
 
 ```bash
-git clone https://github.com/Ar0d3x/sat-efos-tracker.git
-cd sat-efos-tracker
+git clone https://github.com/tiendadaxiang-hub/Paimon_SAT-EFOS-TRACKER_by_ACM.git
+cd Paimon_SAT-EFOS-TRACKER_by_ACM
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
